@@ -1,0 +1,54 @@
+{% load static %}
+{% block content%}
+{% include 'header.html' %}
+<div class="container mt-5">
+    
+    <div class="row d-flex justify-content-center">
+        
+        <div class="col-md-7">
+            
+            <div class="card p-3 py-4">
+                
+                <div class="text-center mt-3">
+                    <h3 class="mt-2 mb-0">{{result.emp_name}}</h3>
+                    <span>{{result.emp_email}}</span>
+                    
+                    <div class="px-4 mt-1">
+                        <h5 class="mt-2 mb-0">password</h5>
+                        <p class="fonts">{{result.emp_password}}</p>
+                    
+                    </div>
+                    <div class="px-4 mt-1">
+                        <h5 class="mt-2 mb-0">phone</h5>
+                        <p class="fonts">{{result.phone}}</p>
+                    
+                    </div>
+                    <div>
+                    <h5 class="mt-2 mb-0">position</h5>
+                    <p class="fonts">{{result.position}}</p>
+                    
+                    </div>
+                    
+            
+                    
+                    <div class="buttons">
+                        
+                        <button class="btn btn-primary px-4 ms-3"><a href="{% url 'e_update' id=result.id %}">Edit</a></button>
+                    </div>
+                    
+                    
+                </div>
+                
+               
+                
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

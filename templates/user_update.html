@@ -1,0 +1,49 @@
+{% load static %}
+{% block content %}
+{% include 'header.html'%}
+<section id="gtco-reservation" class="bg-fixed bg-white section-padding overlay" style="background-image: url(img/reservation-bg.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-content bg-white p-5 shadow">
+                    <div class="heading-section text-center">
+                        <span class="subheading">
+                            
+                        </span>
+                        <h2>
+                            UPDATE
+                        </h2>
+                    </div>
+                    <form method="POST" action="user_update/{{result1.id}}">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="name" name="username" placeholder="Name" value="{{result1.username}}">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="email" name="useremail" placeholder="Email" value="{{result1.useremail}}">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="psw" name="userpassword" placeholder="password" value="{{result1.userpassword}}">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="number" class="form-control" id="phoneNumber" name="phone" placeholder="Phone" value="{{result1.phone}}">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="address" name="address" placeholder="address" value="{{result1.address}}">
+                            </div>
+                            
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" >update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+{% include 'footer.html'%}
+{% endblock %}

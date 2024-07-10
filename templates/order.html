@@ -1,0 +1,39 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+<div class="container mt-5">
+    <form action="{% url 'orders' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-7">
+                
+                    <div class="text-center">
+                        <img src="{{ result.dish_img.url }}" width="100" class="rounded-circle" alt="{{ result.dish_name }}">
+                        <input type="hidden" name="or_img" value="{{ result.dish_img }}">
+                    </div>
+                    <div class="text-center mt-3">
+                        <h5 class="mt-2 mb-0">{{ result.dish_name }}</h5>
+                        <input type="hidden" name="or_name" value="{{ result.dish_name }}">
+                        <div class="px-4 mt-1">
+                            <p class="fonts">{{ result.price }}</p>
+                            <input type="hidden" name="or_price" value="{{ result.price }}">
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" name="or_adrs" placeholder="Address" required>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" name="or_ph" placeholder="Phone" required>
+                            </div>
+                        </div>
+                        <div class="buttons">
+                           
+                           <button type="submit" class="btn btn-primary px-4 ms-3">Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% include 'footer.html' %}
+{% endblock %}

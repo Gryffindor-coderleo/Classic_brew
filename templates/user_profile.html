@@ -1,0 +1,36 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+<body>
+    
+
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+            <div class="card p-3 py-4">
+                
+                <div class="text-center mt-3">
+                    
+                    <h5 class="mt-2 mb-0">{{ result.username }}</h5>
+                    <span>{{ result.useremail }}</span>
+                    <div class="px-4 mt-1">
+                        <p class="fonts">{{ result.userpassword }}</p>
+                        <h5 class="mt-2 mb-0">{{ result.phone }}</h5>
+                        <span>{{ result.address }}</span>
+                    </div>
+                    <div class="buttons">
+                       
+                        <button class="btn btn-primary px-4 ms-3"><a href="{% url 'u_update' id=result.id %}">Edit</a></button>
+                    </div><br>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+{% include 'footer.html' %}
+{% endblock %}

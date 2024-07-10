@@ -1,0 +1,63 @@
+{% load static %}
+{% block content %}
+{% include 'header.html'%}
+<section id="gtco-reservation" class="bg-fixed bg-white section-padding overlay" style="background-image: url(img/reservation-bg.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-content bg-white p-5 shadow">
+                    <div class="heading-section text-center">
+                        <span class="subheading">
+                            
+                        </span>
+                        <h2>
+                            UPDATE
+                        </h2>
+                    </div>
+                    <form method="POST" action="emp_update/{{result1.id}}">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="name" name="emp_name" placeholder="Name" value="{{result1.emp_name}}">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="email" name="emp_email" placeholder="Email" value="{{result1.emp_email}}">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="psw" name="emp_password" placeholder="password" value="{{result1.emp_password}}">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="number" class="form-control" id="phoneNumber" name="phone" placeholder="Phone" value="{{result1.phone}}">
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <label for="inputtext" class="col-sm-2 col-form-label">position</label><br>
+                                <div class="col-md-4">
+                                    <br><br>
+                                    <select id="inputState" name="position" class="form-select" value="{{result1.position}}">
+                                      <option selected>Choose...</option>
+                                      <option>position</option>
+                                      <option>barista</option>
+                                      <option>cashier</option>
+                                      <option>server</option>
+                                      <option>cleaner</option>
+                                      <option>cook\chef</option>
+                                    </select>
+                                  </div>
+                          </div>
+                
+                            
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" >update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+{% include 'footer.html'%}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% load static %}
+{% block content %}
+{% include 'header.html'%}
+<section id="gtco-reservation" class="bg-fixed bg-white section-padding overlay" style="background-image: url(img/reservation-bg.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-content bg-white p-5 shadow">
+                    <div class="heading-section text-center">
+                        <span class="subheading">
+                            
+                        </span>
+                        <h2>
+                            MENU
+                        </h2>
+                    </div>
+                    <form method="POST" action="add_menu" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="name" name="dish_name" placeholder="Name">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="number" class="form-control" id="price" name="price" placeholder="price">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="file" class="form-control" id="psw" name="dish_img" placeholder="food">
+                            </div>
+                            
+                            
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" >Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+{% include 'footer.html'%}
+{% endblock %}
